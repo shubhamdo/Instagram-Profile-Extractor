@@ -27,6 +27,7 @@ def web_adress_navigator(browser, link):
 
     try:
         current_url = browser.current_url
+        print(current_url)
     except WebDriverException:
         try:
             current_url = browser.execute_script("return window.location.href")

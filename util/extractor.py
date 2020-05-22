@@ -387,7 +387,7 @@ def quick_post_extract(browser, num_of_posts_to_do):
             num_likes = post_json.get('numLikes') or post_json.get('numPreviewLikes', -1)
 
             post_infos.append({
-                'caption': post_json['caption'],
+                'caption': post_json.get('caption'),
                 'location': location,
                 'imgs': [],
                 'imgdesc': [],
@@ -455,7 +455,7 @@ def extract_information(browser, username, limit_amount):
 
     post_infos = []
     user_commented_total_list = []
-    if Settings.scrape_posts_infos is True and isprivate is False:
+    if Settings.scrape_posts_infos is True and ig_user.isprivate is False:
         post_infos, user_commented_total_list = quick_post_extract(browser, num_of_posts_to_do)
 
     ig_user.posts = post_infos
